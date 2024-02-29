@@ -1,0 +1,361 @@
+body {
+    padding-top: 56px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    top: 0;
+    background-color: #585d64;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 0;
+}
+
+.navbar-container ul li {
+    list-style: none;
+}
+
+.app-name {
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    margin-right: auto;
+}
+
+.navbar-container ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+/* Estilo por defecto del enlace sin el hover */
+.navbar-container ul li a.nav-items {
+    position: relative; /* Necesario para posicionar el pseudo-elemento respecto a este enlace */
+    text-decoration: none; /* Remueve el subrayado por defecto */
+    color: white; /* Color del texto */
+    font-size: medium; /* Tamaño del texto */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+/* Estilo del pseudo-elemento que servirá como la línea de resaltado */
+.navbar-container ul li a.nav-items::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Altura de la línea de resaltado */
+    background-color: gray; /* Color de la línea */
+    bottom: -5px; /* Distancia de la línea al texto */
+    left: 0;
+    transition: width 0.3s; /* Transición suave para la aparición de la línea */
+}
+
+/* Estilo cuando se hace hover sobre el enlace */
+.navbar-container ul li a.nav-items:hover {
+    /* color: rgb(204, 195, 195);  */
+    color: black;
+}
+
+.navbar-container ul li a.nav-items:hover::after {
+    width: 100%; /* La línea se extiende a todo el ancho del enlace */
+}
+
+/* Opcional: Estilo para cuando se hace focus sobre el enlace (para accesibilidad) */
+.navbar-container ul li a.nav-items:focus::after {
+    width: 100%; /* La línea se extiende a todo el ancho del enlace */
+}
+
+.button-login {
+    text-decoration: none;
+    background-color: #009879;
+    color: #fff;
+    border-radius: 24px;
+    padding: 2px 12px;
+    font-size: medium;
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.cart-container{
+    display: flex;
+    align-items: center;
+}
+
+
+.button {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+
+.salas-container {
+    width: 100% - 20px;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-right: 2rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    background-color: #D8D8D8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 1.7%;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.salas-container svg {
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    cursor:  pointer;
+    border-radius: 50%;
+}
+
+.salas-container ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0px;
+    padding: 10px 60px 10px 60px;
+    list-style: none;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.salas-container ul::-webkit-scrollbar {
+    display: none;
+}
+
+.salas-container ul li a{
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+    background-color: transparent;
+    border-style: none;
+}
+
+.salas-container ul li a{
+    padding: 10px 10px 10px 10px;
+    text-decoration: none;
+    color: #3b3636;
+    white-space: nowrap;
+
+}   
+
+.salas-container ul li a:hover{
+    background-color: #dfcfcf;
+    color: black;
+}
+
+.salas-container .right-arrow,
+.salas-container .left-arrow {
+    position: absolute;
+    height: 100%;
+    width: 80px;
+    top: 0;
+    display: none;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.salas-container .right-arrow.active,
+.salas-container .left-arrow.active {
+    display: flex;
+}
+
+.salas-container a.active {
+    color: black;
+    font-weight: 550;
+}
+
+.salas-container .right-arrow {
+    right: 0;
+    background: linear-gradient(to left, #d8d8d8 50%, transparent);
+    justify-content: flex-end;
+    /* align-items: center; */
+}
+
+.salas-container .left-arrow {
+    background: linear-gradient(to right, #d8d8d8 50%, transparent);
+}
+
+.salas-container svg:hover {
+    background: #cebbbb;
+}
+
+
+.manage-container {
+    display: flex;
+    margin-top: 1%;
+    height: calc(100vh - 150px);
+
+}
+
+
+.right-container {
+    display: flex;
+    flex: 4;
+    background-color : #D8D8D8;
+    margin-right: 10px;
+    height: 100%;
+    overflow: auto;
+    border-radius: 5px 5px 0 0;
+    
+}
+
+.content-table {
+    display:table;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    flex: 1;
+    border-radius: 5px 5px 0 0;
+    overflow: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table:hover {
+    cursor: text;
+}
+
+.content-table thead tr th{
+    min-height: 400px;
+
+}
+
+.content-table thead tr {
+    position: sticky;
+    z-index: 100;
+    top: -0.02px;
+    background-color: #13b897;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+
+.content-table thead, .content-table tbody{
+    white-space: nowrap;
+}
+
+.content-table th, .content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody td, .content-table thead th {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid black;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.left-container {
+    flex: 1;
+    background-color: #D8D8D8;
+    padding: 12px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-top: 6px solid #13b897;
+    border-radius: 5px 5px 0 0;
+    height: 100%;
+}
+
+#reserva-container {
+    position: relative;
+    padding: 10px 0 0 0;
+    background-color: #0ca788e1;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    height: 100%;
+    overflow: hidden;
+}
+
+#infoblock-container {
+    height: 80%;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+}
+
+#infoblock-container::-webkit-scrollbar {
+    display: none;
+}
+
+.grandient-container {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: flex;
+    background: linear-gradient(to bottom, #0ca788e1 50%, transparent);
+}
+
+.info-container {
+    flex: 1;
+    padding: 14px 14px 7px 14px;
+    border-bottom: 1px solid #0d534557;
+    margin: 0 20px;
+}
+
+.info-container span {
+    display: block;
+    color: black;
+    font-size: 1em;
+
+}
+
+.info-span {
+    font-size: 0.9em;
+}
+
+#cancelar-container {
+    padding: 14px 14px 7px 14px;
+    margin: 20px 20px;
+    font-size: 0.9em;
+    overflow: hidden;
+
+}
+
+#cancelar-container button {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 5px;
+    color: #352e2e;
+    background-color: #d8d8d8;
+}
+
+#cancelar-container button:hover {
+    color: black;
+    background-color: #cccbcb;
+}

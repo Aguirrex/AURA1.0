@@ -1,0 +1,89 @@
+{% extends 'Aura/main.html' %}
+{% load static %}
+{% block content %}
+
+<div id="salas-container-id" class="salas-container">
+    <div class="left-arrow active">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+        </svg>          
+    </div>
+    <ul class="sala-ul">
+        {% for sala in salas %}
+            <li>
+                <a class="sala-link" data-sala-id="{{sala.id}}" href="?sala_id={{ sala.id }}">{{sala.nombre}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="right-arrow active">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>  
+    </div>
+</div>
+<div class="manage-container">
+    <div class="left-container">
+        <div id="reserva-container">
+            <div class="grandient-container">
+                <span>&nbsp;</span>
+            </div>
+            <div id="infoblock-container">
+                <div class="info-container">
+                    <span>Nombre</span>
+                    <spam id="nombre-span" class="info-span">{{nombre_info}}</spam>
+                </div>
+                <div class="info-container">
+                    <span>Código </span>
+                    <spam id="codigo-span" class="info-span">{{codigo_info}}</spam>
+                </div>
+                <div class="info-container">
+                    <span>Dependencia </span>
+                    <spam id="dependencia-span" class="info-span">{{dependencia_info}}</spam>
+                </div>
+                <div class="info-container">
+                    <span>Equipo</span>
+                    <spam id="equipo" class="info-span">{{equipo_info}}</spam>
+                </div>
+                <div class="info-container">
+                    <span>Hora reserva</span>
+                    <spam id="hora-span" class="info-span">{{hora_info}}</spam>
+                </div>
+            </div>
+            <div id="cancelar-container">
+                <button id="cancelar-button">
+                    Cancelar reserva
+                </button>
+            </div> 
+        </div>
+    </div>
+    <div class="right-container">
+        <table class="content-table">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                {% for equipo in equipos %}
+                    <th>{{sala}}-{{equipo.num_equipo}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              
+                {% for row in data_table %}
+                    <tr class="hora-tr">
+                        <td>{{row.0}}</td>
+                        {% for reserva in row %}
+                            
+                            <td name="celda" value="{{reserva}}">
+                                <a id="reserva-a" href="?sala_id={{ sala.id }}&reserva_id={{reserva.0}}">{{reserva.1}}</a>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+              
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<script src="{% static 'js/selectedSalaColor.js' %}"></script>
+{% endblock content %}
